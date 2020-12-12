@@ -52,7 +52,8 @@ print("y_pred:",y_pred)
 pred = y_pred
 true = y_test
 ################ Performance Evaluation #######################################
-error = abs(true - pred)
+error = abs((true - pred)/pred)
+percentage_error = error * 100
 score = abs (r2_score(true, pred))
 mse = mean_squared_error(true,pred)
 mae = mean_absolute_error(true, pred)
@@ -61,16 +62,27 @@ print("R2:{0:.3f}, MSE:{1:.2f}, MAE:{1:.2f}, RMSE:{2:.2f}"
 ################ visualization #####################################
 l = list(range(8)) #index numbers for x axis
 l
-plt.plot(l, y_pred, label = "Predicted values") 
-plt.plot(l, y_test, label = "True values") 
-plt.plot(l, error, label = "error") 
-# naming the x axis 
-plt.xlabel('trials') 
-# naming the y axis 
-plt.ylabel('true and predicted values') 
-# giving a title to my graph 
-plt.title('Boosting ensemble method: Light GBM visualization') 
-# show a legend on the plot 
-plt.legend() 
-# function to show the plot 
+####################################
+fig = plt.figure()
+ax = fig.add_subplot(111)
+
+lns1 = ax.plot(l, y_pred, color =  "g", label = "Predicted values")
+lns2 = ax.plot(l, y_test,color = "r", label = "True values")
+ax2 = ax.twinx()
+lns3 = ax2.plot(l, percentage_error, label = '% error')
+
+# added these three lines
+lns = lns1+lns2+lns3
+labs = [l.get_label() for l in lns]
+ax.legend(lns, labs, loc=0)
+
+ax.grid()
+ax.set_xlabel("trials")
+ax.set_ylabel(r"true and predicted values ($μA/cm^2$)")
+ax2.set_ylabel(r"% error")
+plt.title('Light GBM') 
 plt.show()
+#####################################
+### Saving result in csv file
+d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
+prediction = pd.DataFrame(d, columns=None).to_csv('Boosting Light GBM Ensemble Method prediction.csv')

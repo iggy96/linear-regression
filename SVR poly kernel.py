@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Aug 23 05:42:10 2020
+Created on Mon Nov  9 09:42:36 2020
 
 @author: oseho
 """
-
 
 
 import time
@@ -36,10 +35,10 @@ start_time = start_time_()
 from defined_libraries import* 
 from feature_set import*
 
-# building linear regression model
-linreg = LinearRegression()
-linreg.fit(X_train, y_train)
-y_pred = linreg.predict(X_test)
+# build poly kernel based model
+svr_poly = (SVR(kernel='poly', C=2, degree=3, epsilon=0.0009923))
+svr_poly.fit(X_train, y_train)
+y_pred = svr_poly.predict(X_test)
 
 ################ Performance Evaluation #######################################
 def rmse():
@@ -55,7 +54,7 @@ print('R2 %.3f' % (R2()))
 error = abs((y_test - y_pred)/y_pred)
 percentage_error = (error*100)
 
-################ visualization #####################################
+################ visualization #####################
 l = list(range(5)) #index numbers for x axis
 l
 fig = plt.figure()
@@ -75,25 +74,23 @@ ax.grid()
 ax.set_xlabel("trials")
 ax.set_ylabel(r"true and predicted values ($μA/cm^2$)")
 ax2.set_ylabel(r"% error")
-plt.title('Linear regression') 
+plt.title('Support Vector Regression: Polynomial Kernel') 
 plt.show()
-
+### Saving result in csv file
 d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
-prediction = pd.DataFrame(d, columns=None).to_csv('Linear regression prediction.csv')
-
+prediction = pd.DataFrame(d, columns=None).to_csv('SVR Poly kernel prediction.csv')
 
 ##############################################################################################
 [i for i in range(0,100000000)]
-############################################################################## your code here #
-
+###################################
 #Importing the libraries
 from defined_libraries import* 
 from feature_set import*
 
-# building linear regression model
-linreg = LinearRegression()
-linreg.fit(X_train, y_train)
-y_pred = linreg.predict(X_test)
+# build poly kernel based model
+svr_poly = (SVR(kernel='poly', C=2, degree=3, epsilon=0.0009923))
+svr_poly.fit(X_train, y_train)
+y_pred = svr_poly.predict(X_test)
 
 ################ Performance Evaluation #######################################
 def rmse():
@@ -109,7 +106,7 @@ print('R2 %.3f' % (R2()))
 error = abs((y_test - y_pred)/y_pred)
 percentage_error = (error*100)
 
-################ visualization #####################################
+################ visualization #####################
 l = list(range(5)) #index numbers for x axis
 l
 fig = plt.figure()
@@ -129,12 +126,11 @@ ax.grid()
 ax.set_xlabel("trials")
 ax.set_ylabel(r"true and predicted values ($μA/cm^2$)")
 ax2.set_ylabel(r"% error")
-plt.title('Linear regression') 
+plt.title('Support Vector Regression: Polynomial Kernel') 
 plt.show()
-
+### Saving result in csv file
 d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
-prediction = pd.DataFrame(d, columns=None).to_csv('Linear regression prediction.csv')
-
+prediction = pd.DataFrame(d, columns=None).to_csv('SVR Poly kernel prediction.csv')
 ##############################################################################################
 end_time = end_time_()
 print("Execution_time is :", Execution_time(start_time,end_time))

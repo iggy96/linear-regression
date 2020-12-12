@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Sep  4 02:18:26 2020
+Created on Mon Nov  9 09:47:41 2020
 
 @author: oseho
 """
@@ -8,17 +8,15 @@ Created on Fri Sep  4 02:18:26 2020
 from defined_libraries import* 
 from feature_set import*
 
+
+# build rbf kernel based model
+svr_rbf = SVR(kernel='rbf', C=100, gamma=0.1, epsilon=.1)
+svr_rbf.fit(X_train, y_train)
+y_pred = svr_rbf.predict(X_test)
+
 ################ Performance Evaluation #######################################
-model=(xgb.XGBRegressor(max_depth=7,random_state=1))
-model.fit(X_train, y_train)
-y_pred = model.predict(X_test)
-
-pred = y_pred
-true = y_test
-
-############################ performance evaluation parameters #####################
 def rmse():
-    return sqrt(mean_squared_error(y_test, y_pred))
+	return sqrt(mean_squared_error(y_test, y_pred))
 def mse():
     return (mean_squared_error(y_test,y_pred))
 def R2():
@@ -29,8 +27,9 @@ print('MSE %.3f' % (mse()))
 print('R2 %.3f' % (R2()))
 error = abs((y_test - y_pred)/y_pred)
 percentage_error = (error*100)
-################ visualization #####################################
-l = list(range(5)) #index numbers for x axis
+
+######### rbf visualization #############
+l = list(range(8)) #index numbers for x axis
 l
 fig = plt.figure()
 ax = fig.add_subplot(111)
@@ -49,22 +48,7 @@ ax.grid()
 ax.set_xlabel("trials")
 ax.set_ylabel(r"true and predicted values ($μA/cm^2$)")
 ax2.set_ylabel(r"% error")
-plt.title('Boosting XGBM Ensemble Method') 
+plt.title('Support Vector Regression: RBF Kernel') 
 plt.show()
-
-### Saving result in csv file
 d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
-prediction = pd.DataFrame(d, columns=None).to_csv('Boosting XGBM Ensemble Method prediction.csv')
-
-
-
-
-
-
-
-
-
-
-
-
-
+prediction = pd.DataFrame(d, columns=None).to_csv('SVR RBF Kernel prediction.csv')
