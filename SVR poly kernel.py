@@ -29,7 +29,6 @@ def Execution_time(start_time_,end_time_):
    return(strftime("%H:%M:%S",gmtime(int('{:.0f}'.format(float(str((end_time-start_time))))))))
 
 start_time = start_time_()
-###############################################################################
 
 #Importing the libraries
 from defined_libraries import* 
