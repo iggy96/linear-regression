@@ -15,7 +15,7 @@ svr_lin = SVR(kernel='linear', C=100, gamma='auto')
 svr_lin.fit(X_train, y_train)
 y_pred = svr_lin.predict(X_test)
 
-################ Performance Evaluation #######################################
+# Performance Evaluation 
 def rmse():
 	return sqrt(mean_squared_error(y_test, y_pred))
 def mse():
@@ -29,7 +29,7 @@ print('R2 %.3f' % (R2()))
 error = abs((y_test - y_pred)/y_pred)
 percentage_error = (error*100)
 
-################ linear kernel visualization ######
+# visualization 
 l = list(range(8)) #index numbers for x axis
 l
 fig = plt.figure()
