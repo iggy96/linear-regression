@@ -54,17 +54,3 @@ plt.show()
 ### Saving result in csv file
 d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
 prediction = pd.DataFrame(d, columns=None).to_csv('Boosting Adaboost Ensemble Method prediction.csv')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
