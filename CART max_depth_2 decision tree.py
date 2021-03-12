@@ -1,13 +1,4 @@
-import numpy as np
-import pandas as pd
-from sklearn.metrics import mean_squared_error
-import sklearn.model_selection as model_selection
-from sklearn import metrics
-from sklearn.metrics import r2_score
-from sklearn.metrics import mean_absolute_error
-import matplotlib.pyplot as plt
-from sklearn.tree import DecisionTreeRegressor
-
+from defined_libraries import* 
 
 data = pd.read_csv('training data_including_test_data_corrosion_rate_confirmation.csv')
 data.head()
