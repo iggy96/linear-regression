@@ -41,7 +41,6 @@ X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, train_
 model = BaggingRegressor (n_estimators=10,random_state=1)
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
-
 print("y_pred:",y_pred)
 
 pred = y_pred
