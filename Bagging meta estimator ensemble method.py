@@ -14,8 +14,6 @@ from sklearn.metrics import r2_score
 from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
 
-
-
 data = pd.read_csv('training data_including_test_data_corrosion_rate_confirmation.csv')
 data.head()
 data.tail()
