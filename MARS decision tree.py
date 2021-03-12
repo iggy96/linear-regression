@@ -9,7 +9,6 @@ from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
 from pyearth import Earth
 
-
 data = pd.read_csv('training data_including_test_data_corrosion_rate_confirmation.csv')
 data.head()
 data.tail()
