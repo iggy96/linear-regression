@@ -42,7 +42,7 @@ ensemble = VotingRegressor(estimators)
 ensemble.fit(X_train, y_train)
 y_pred = ensemble.predict(X_test)
 
-################ Performance Evaluation #######################################
+# Performance Evaluation 
 def rmse():
 	return sqrt(mean_squared_error(y_test, y_pred))
 def mse():
@@ -56,7 +56,7 @@ print('R2 %.3f' % (R2()))
 error = abs((y_test - y_pred)/y_pred)
 percentage_error = (error*100)
 
-################ visualization #####################################
+# visualization 
 l = list(range(8)) #index numbers for x axis
 fig = plt.figure()
 ax = fig.add_subplot(111)
