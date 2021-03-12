@@ -193,16 +193,6 @@ plt.show()
 d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
 prediction = pd.DataFrame(d, columns=None).to_csv('Boosting GBM Ensemble Method prediction.csv')
 
-##############################################################################################
+# executime time calculation
 end_time = end_time_()
 print("Execution_time is :", Execution_time(start_time,end_time))
-
-#############################################################################################
-
-
-
-
-
-
-
-
