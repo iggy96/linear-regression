@@ -1,8 +1,8 @@
 # Supervised learning
 Supervised learning algorithms implemented in the prediction corrosion current of 3C stel metal. The models developed from these algorithms include:
-bagging meta estimator model
-adaboost ensemble model
-gradient boosting machine ensemble model
+i. bagging meta estimator model
+ii. adaboost ensemble model
+iii. gradient boosting machine ensemble model
 extra gradient boosting model (xgbm) ensemble model
 classification and regression tree (cart) model: maximum depth of 2
 classification and regression tree (cart) model: maximum depth of 5
