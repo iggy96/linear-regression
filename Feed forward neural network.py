@@ -26,7 +26,6 @@ seed(1)
 from tensorflow import set_random_seed
 set_random_seed(2)
 
-
 data = pd.read_csv('training data_including_test_data_corrosion_rate_confirmation.csv')
 data.head()
 data.tail()
