@@ -56,15 +56,3 @@ plt.show()
 d = {'y_test':y_test, 'y_pred':y_pred,'error':error,'percentage error':percentage_error}
 prediction = pd.DataFrame(d, columns=None).to_csv('Boosting XGBM Ensemble Method prediction.csv')
 
-
-
-
-
-
-
-
-
-
-
-
-
