@@ -27,7 +27,6 @@ y.head()
 # check the type and shape of Y
 print(type(y))
 print(y.shape)
-#####################
 
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, train_size=0.83,test_size=0.17, random_state=1)
 # Fit regression model with max depth values# higher maximum depth, higher accuracy
