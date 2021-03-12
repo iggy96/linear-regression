@@ -19,4 +19,3 @@ linear regression model
 multilayer perceptron model
 polynomial regression model
 ridge regression model
-
